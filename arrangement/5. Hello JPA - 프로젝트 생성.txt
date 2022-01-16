@@ -1,0 +1,10 @@
+	* JPA 시작
+	
+	- Hello JPA - 프로젝트 생성
+		1. H2 Database 설치
+		2. intelliJ 프로젝트 생성
+			1) pom.xml 디펜던시 추가
+				 - JPA 하이버네이트
+				 - H2 데이터베이스
+		3. JPA 설정하기 (persistence.xml -> 표준 위치가 정해져 있다.)
+			<property name="hibernate.show_sql" value="true"/> - DB에 쿼리가 나가는 것?
