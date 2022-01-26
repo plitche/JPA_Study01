@@ -12,6 +12,7 @@ public class Member {
     @Id //pk가 뭔지 알려준다.
     private Long id;
     // @Column(name = "username") 특정 컬럼에 저장 해줄 때
+    @Column(name="name", unique = true, length = 10)
     private String name;
 
     public Member(){}

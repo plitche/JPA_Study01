@@ -1,0 +1,12 @@
+	10. 객체와 테이블 매핑
+		- 객체와 테이블 매핑 @Entity, @Table
+		- 데이터베이스 스키마 자동 생성 
+		- 필드와 컬럼 매핑 @Column
+		- 기본 키 매핑 @Id
+		- 연관관계 매핑 : @ManyToOne, @JoinColumn
+		
+		* @Entity
+		@Entity가 붙은 클래스는 JPA가 관리
+		JPA를 사용해서 테이블과 매핑할 클래스는 @Entity 필수
+			: 기본 생성자 필수
+		
