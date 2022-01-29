@@ -1,0 +1,13 @@
+	13. 기본 키 매핑
+		- @Id
+			: 아이디를 직접 할당 할 때 
+		- @GeneratedValue
+			: identity = 데이터베이스에 위임, MYSQL
+			: sequence : 데이터베이스 시퀀스 오브젝트 사용, ORACLE
+			: table
+			:
+			
+			
+			
+			
+		
