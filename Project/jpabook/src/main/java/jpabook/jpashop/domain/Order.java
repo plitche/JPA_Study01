@@ -4,6 +4,8 @@ import com.sun.org.apache.xpath.internal.operations.String;
 
 import javax.persistence.*;
 import java.time.LocalDateTime;
+import java.util.ArrayList;
+import java.util.List;
 
 @Entity
 @Table(name = "ORDERS")
@@ -13,6 +15,7 @@ public class Order {
     @Column(name = "ORDER_ID")
     private Long Id;
 
+    /*
     @Column(name = "MEMBER_ID")
     private Long memberId;
 
@@ -20,11 +23,24 @@ public class Order {
     public Member getMember() {
         return member;
     }
+    */
+    // =>
+    @ManyToOne
+    @JoinColumn(name = "MEMBER_ID")
+    private Member member;
+
+    @OneToMany(mappedBy = "order")
+    private List<OrderItem> orderItems = new ArrayList<>();
 
     private LocalDateTime orderDate;
 
     @Enumerated(EnumType.STRING)
     private OrderStatus status;
+
+    public void addOrderItem(OrderItem orderItem) {
+        orderItems.add(orderItem);
+        orderItem.setOrder(this);
+    }
 
     public Long getId() {
         return Id;
@@ -32,14 +48,6 @@ public class Order {
 
     public void setId(Long id) {
         Id = id;
-    }
-
-    public Long getMemberId() {
-        return memberId;
-    }
-
-    public void setMemberId(Long memberId) {
-        this.memberId = memberId;
     }
 
     public LocalDateTime getOrderDate() {
@@ -56,5 +64,13 @@ public class Order {
 
     public void setStatus(OrderStatus status) {
         this.status = status;
+    }
+
+    public Member getMember() {
+        return member;
+    }
+
+    public void setMember(Member member) {
+        this.member = member;
     }
 }
