@@ -1,6 +1,8 @@
 package hellojpa;
 
 import javax.persistence.*;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.concurrent.locks.Lock;
 
 @Entity
@@ -21,6 +23,16 @@ public class Member3 {
     @OneToOne
     @JoinColumn(name = "LOCKER_ID")
     private Locker locker;
+
+    // 다대다 관계에서는 컬랙션을 이용해서 중간 다리가 필요하다. but 쓰지마라
+    /*
+    @ManyToMany
+    @JoinColumn(name = "MEMBER_PRODUCT")
+    private List<Product> products = new ArrayList<Product>();
+    */
+
+    @OneToMany(mappedBy = "member3")
+    private List<MemberProduct> memberProducts = new ArrayList<MemberProduct>();
 
     public Long getId() {
         return id;
