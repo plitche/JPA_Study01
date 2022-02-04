@@ -16,6 +16,11 @@ public class Team {
     @OneToMany(mappedBy = "team") // 1:N 매핑에서 나는 뭐랑 연결되어있는지 (Member2 클래스의 team 변수)
     private List<Member2> members = new ArrayList<Member2>();
 
+    public void addMember(Member2 member) {
+        member.setTeam(this);
+        members.add(member);
+    }
+
     public Long getId() {
         return id;
     }

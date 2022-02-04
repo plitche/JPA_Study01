@@ -42,5 +42,13 @@ public class Member2 {
 
     public void setTeam(Team team) {
         this.team = team;
+        team.getMembers().add(this); // 나자신의 인스턴스를 넣어준다. : 연관관계 편의 메소드
     }
+
+    public void changeTeam(Team team) {
+        this.team = team;
+        team.getMembers().add(this); // 나자신의 인스턴스를 넣어준다. : 연관관계 편의 메소드
+    }
+
+
 }
