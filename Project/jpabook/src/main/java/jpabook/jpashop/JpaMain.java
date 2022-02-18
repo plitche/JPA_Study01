@@ -1,5 +1,6 @@
 package jpabook.jpashop;
 
+import jpabook.jpashop.domain.Book;
 import jpabook.jpashop.domain.Member;
 import jpabook.jpashop.domain.Order;
 import jpabook.jpashop.domain.OrderItem;
@@ -41,6 +42,12 @@ public class JpaMain {
 
             em.persist(orderItem);
 
+            // real example 4
+            Book book = new Book();
+            book.setName("JPA");
+            book.setAuthor("yskwon");
+
+            em.persist(book);
 
 
             tx.commit();
