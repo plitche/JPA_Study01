@@ -8,3 +8,4 @@ jpa-basic-pdf/07. 고급 매핑.pdf
 jpa-basic-pdf/08. 프록시와 연관관계 관리.pdf
 jpa-basic-pdf/09. 값 타입.pdf
 jpa-basic-pdf/10. 객체지향 쿼리 언어.pdf
+*.class

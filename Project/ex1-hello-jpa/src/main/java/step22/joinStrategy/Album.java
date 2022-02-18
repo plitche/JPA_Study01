@@ -1,4 +1,4 @@
-package step22;
+package step22.joinStrategy;
 
 import javax.persistence.DiscriminatorValue;
 import javax.persistence.Entity;
