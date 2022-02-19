@@ -73,4 +73,5 @@ public class Member3 {
     public void setMemberProducts(List<MemberProduct> memberProducts) {
         this.memberProducts = memberProducts;
     }
+
 }
