@@ -38,7 +38,7 @@ public class JpaMain {
             // em.remove(findMember);
 
             /* JPQL (query, type)*/
-            List<Member> result = em.createQuery("select m from Member as m", Member.class)
+            List<Member> result = em.createQuery("select m from Parent as m", Member.class)
                     .setFirstResult(5)
                     .setMaxResults(8)
                     .getResultList();
