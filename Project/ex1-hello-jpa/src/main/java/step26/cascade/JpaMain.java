@@ -26,8 +26,14 @@ public class JpaMain {
             parent.addChild(child2);
 
             em.persist(parent);
-            em.persist(child1);
-            em.persist(child2);
+//            em.persist(child1);
+//            em.persist(child2);
+
+            em.flush();
+            em.clear();
+
+            Parent parent1 = em.find(Parent.class, parent.getId());
+            parent1.getChildList().remove(0);
 
             tx.commit();
         } catch (Exception e) {

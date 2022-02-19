@@ -13,3 +13,13 @@
 			- 고아 객체 제거: 부모 엔티티와 연관관계가 끊어진 자식 엔티티를 자동으로 삭제
 			- orphanRemoval = true
 			
+			참조하는 곳이 하나일 때 사용해야함!
+			특정 엔티티가 개인 소유할 때 사용
+			@OneToOne, @OneToMany만 가능
+			
+			
+		orphanRemoval = true + CascadeType.ALL
+			: 다 활성화 하면 부모 엔티티를 통해서 자식의 생명주기를 제어할 수 있음.
+			
+			
+			
