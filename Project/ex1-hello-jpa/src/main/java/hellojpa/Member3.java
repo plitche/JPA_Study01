@@ -49,4 +49,28 @@ public class Member3 {
     public void setUsername(String username) {
         this.username = username;
     }
+
+    public Team1 getTeam1() {
+        return team1;
+    }
+
+    public void setTeam1(Team1 team1) {
+        this.team1 = team1;
+    }
+
+    public Locker getLocker() {
+        return locker;
+    }
+
+    public void setLocker(Locker locker) {
+        this.locker = locker;
+    }
+
+    public List<MemberProduct> getMemberProducts() {
+        return memberProducts;
+    }
+
+    public void setMemberProducts(List<MemberProduct> memberProducts) {
+        this.memberProducts = memberProducts;
+    }
 }
