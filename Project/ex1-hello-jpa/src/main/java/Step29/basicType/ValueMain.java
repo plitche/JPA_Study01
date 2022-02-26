@@ -1,4 +1,4 @@
-package Step29.BasicType;
+package Step29.basicType;
 
 public class ValueMain {
 

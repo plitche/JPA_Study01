@@ -1,0 +1,11 @@
+	28. 임베디드 타입(복합 값 타입)
+		- 새로운 값 타입을 직접 정의할 수 있음
+		- 주로 기본 값 타입을 모아서 만들어서 복합 값 타입이라고도 함
+		- int, String과 같은 값 타입
+		
+		@AttributeOverride : 속성 재정의
+		- 한 엔티티에서 같은 값 타입을 사용하면?
+		- 컬럼 명이 중복됨
+		- @AttributeOverrides, @AttributeOverride를 사용해서 컬럼 명 속성을 재정의
+		
+		
