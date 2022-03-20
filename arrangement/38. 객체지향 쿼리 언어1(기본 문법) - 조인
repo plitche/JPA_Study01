@@ -1,0 +1,13 @@
+	38. 객체지향 쿼리 언어1(기본 문법) - 조인
+		1. 내부 조인 : SELECT m FROM Member m [INNER] JOIN m.team t
+		2. 외부 조인 : SELECT m FROM Member m LEFT [OUTER] JOIN m.team t
+		3. 세타 조인 : select count(m) from Member m, Team t where m.username = t.name
+			(연관관계가 없는걸 막조인한다.)
+			
+		- 조인 ON 절
+			: ON절을 활용한 조인
+				1. 조인 대상 필터링
+				2. 연관관계 없는 엔티티 외부 조인
+				
+		
+		
