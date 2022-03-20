@@ -1,0 +1,8 @@
+	41. 객체지향 쿼리 언어2(중급 문법) - 페치 조인(fetch join)
+		- SQL 조인 종류 X
+		- JPQL에서 성능 최적화를 위해 제공하는 기능
+		- 연관된 엔티티나 컬렉션을 SQL 한 번에 함꼐 조회하는 기능
+		- join jetch 명령어 사용
+		- 페치조인 ::= [LEFT[OUTER] |INNER] JOIN FETCH 조인경로
+		
+		
