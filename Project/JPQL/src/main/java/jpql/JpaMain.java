@@ -55,7 +55,11 @@ public class JpaMain {
             String query4 = "select m from Member m left join Team t on m.username = t.name";
             List<Member> result4 = em.createQuery(query4, Member.class)
                     .getResultList();
-            
+
+            String query5 = "select (select avg(m1.age) from Member m1) from Member m left join Team t on m.username = t.name";
+            List<Member> result5 = em.createQuery(query5, Member.class)
+                    .getResultList();
+
             tx.commit();
         } catch (Exception e) {
             tx.rollback();
