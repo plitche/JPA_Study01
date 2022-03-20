@@ -21,13 +21,13 @@ public class JpaMain {
 
         try {
 
-            JPAFactoryQuery query = new JPAQueryFactory(em);
-            QMember m = QMember.member;
-            List<Member> list =
-                    query.selectFrom(m)
-                            .where(m.age.gt(18))
-                            .orderBy(m.name.desc())
-                            .fetch();
+            Member member = new Member();
+            member.setUsername("member1");
+            em.persist(member);
+
+            // flush -> commit, query
+            // JPA를 우회해서 SQL을 실행하기 직전에 영속성 컨텍스트 수동 플러쉬
+            em.flush();
 
             tx.commit();
         } catch (Exception e) {
