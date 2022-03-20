@@ -21,20 +21,13 @@ public class JpaMain {
 
         try {
 
-            //Criteria 사용 준비
-            CriteriaBuilder cb = em.getCriteriaBuilder();
-            CriteriaQuery<Member> query = cb.createQuery(Member.class);
-
-            Root<Member> m = query.from(Member.class);
-
-            CriteriaQuery<Member> cp = query.select(m).where(cb.equal(m.get("usename"), "kim"));
-
-            String usename = "dsfas";
-            if (usename != null) {
-                cp = cp.where(cb.equal(m.get("username"), "kim"));
-            }
-
-            List<Member> resultList = em.createQuery(cp).getResultList();
+            JPAFactoryQuery query = new JPAQueryFactory(em);
+            QMember m = QMember.member;
+            List<Member> list =
+                    query.selectFrom(m)
+                            .where(m.age.gt(18))
+                            .orderBy(m.name.desc())
+                            .fetch();
 
             tx.commit();
         } catch (Exception e) {
