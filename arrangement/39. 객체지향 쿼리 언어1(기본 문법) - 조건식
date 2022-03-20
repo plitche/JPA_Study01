@@ -1,0 +1,5 @@
+	39. 객체지향 쿼리 언어1(기본 문법) - 조건식
+		기본 CASE 식 : case when 비교조건 then 결과
+		단순 CASE 식 : case when 일치조건 then 결과
+		
+		
