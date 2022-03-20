@@ -100,7 +100,7 @@ public class JpaMain {
             List<String> result9 = em.createQuery(query9, String.class)
                     .getResultList();
 
-            for (String s : result8) {
+            for (String s : result9) {
                 System.out.println("s = " + s);
             }
 
@@ -108,10 +108,44 @@ public class JpaMain {
             List<String> result10 = em.createQuery(query10, String.class)
                     .getResultList();
 
-            for (String s : result8) {
+            for (String s : result10) {
                 System.out.println("s = " + s);
             }
 
+            // uninject language
+            // String query11 = "select 'a' || 'b' From Member m";
+            String query11 = "select concat('a', 'b') From Member m";
+            List<String> result11 = em.createQuery(query11, String.class)
+                    .getResultList();
+
+            for (String s : result11) {
+                System.out.println("s = " + s);
+            }
+
+            String query12 = "select locate('de', 'abcdefg') From Member m";
+            List<Integer> result12 = em.createQuery(query12, Integer.class)
+                    .getResultList();
+
+            for (Integer i : result12) {
+                System.out.println("i = " + i);
+            }
+
+            String query13 = "select size(t.members) From Team t";
+            List<Integer> result13 = em.createQuery(query13, Integer.class)
+                    .getResultList();
+
+            for (Integer i : result13) {
+                System.out.println("i = " + i);
+            }
+
+            // String query14 = "select function('group_concat', m.username) From Member m";
+            String query14 = "select group_concat(m.username) From Member m";
+            List<Integer> result14 = em.createQuery(query14, Integer.class)
+                    .getResultList();
+
+            for (Integer i : result14) {
+                System.out.println("i = " + i);
+            }
 
             tx.commit();
         } catch (Exception e) {
