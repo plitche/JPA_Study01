@@ -6,6 +6,9 @@ import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.EntityTransaction;
 import javax.persistence.Persistence;
+import javax.persistence.criteria.CriteriaBuilder;
+import javax.persistence.criteria.CriteriaQuery;
+import javax.persistence.criteria.Root;
 
 public class JpaMain {
 
@@ -18,15 +21,20 @@ public class JpaMain {
 
         try {
 
-            // Member 객체 자체를 조회해 와 : m
-            List<Member> result = em.createQuery(
-                    "select m From Member as m where m.username like '%kim%'",
-                    Member.class
-            ).getResultList();
+            //Criteria 사용 준비
+            CriteriaBuilder cb = em.getCriteriaBuilder();
+            CriteriaQuery<Member> query = cb.createQuery(Member.class);
 
-            for (Member member : result) {
-                System.out.println("member = " + member);
+            Root<Member> m = query.from(Member.class);
+
+            CriteriaQuery<Member> cp = query.select(m).where(cb.equal(m.get("usename"), "kim"));
+
+            String usename = "dsfas";
+            if (usename != null) {
+                cp = cp.where(cb.equal(m.get("username"), "kim"));
             }
+
+            List<Member> resultList = em.createQuery(cp).getResultList();
 
             tx.commit();
         } catch (Exception e) {
