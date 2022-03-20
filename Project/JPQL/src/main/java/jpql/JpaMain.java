@@ -1,6 +1,7 @@
 package jpql;
 
 import javax.persistence.*;
+import java.util.Collection;
 import java.util.List;
 
 public class JpaMain {
@@ -145,6 +146,38 @@ public class JpaMain {
 
             for (Integer i : result14) {
                 System.out.println("i = " + i);
+            }
+
+            String query15 = "select m.username From Member m"; // -> m.username.asdfasdf 불가능 (끝!)
+            List<String> result15 = em.createQuery(query15, String.class)
+                    .getResultList();
+
+            for (String i : result15) {
+                System.out.println("i = " + i);
+            }
+
+            String query16 = "select m.team.name From Member m"; // -> 단일 값 연관 경로 : 묵시적 내부 조인 발생 : 탐색 가능
+            List<String> result16 = em.createQuery(query16, String.class)
+                    .getResultList();
+
+            for (String i : result16) {
+                System.out.println("i = " + i);
+            }
+
+            String query17 = "select t.members From Member Team t"; // -> 컬렉션 값 연관 경로: 묵시적 내부 조인 발생
+            List result17 = em.createQuery(query17, Collection.class)
+                    .getResultList();
+
+            for (Object o : result17) {
+                System.out.println("i = " + o);
+            }
+
+            String query18 = "select m.username From Member Team t join t.members m"; // FROM 절에서 명시적 조인을 통해 별칭을 얻어 탐색 가능
+            List result18 = em.createQuery(query18, Collection.class)
+                    .getResultList();
+
+            for (Object o : result18) {
+                System.out.println("i = " + o);
             }
 
             tx.commit();

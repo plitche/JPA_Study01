@@ -1,0 +1,20 @@
+	40. 객체지향 쿼리 언어2(중급 문법) - 경로 표현식
+		- .(점)을 찍어 객체 그래프를 탐색하는 것
+		
+		select m.username -> 상태 필드
+		from Member m
+		join m.team t -> 단일 값 연관 필드
+		join m.orders o -> 컬렉션 값 연관 필드
+		where t.name = '팀A'
+		
+		1. 
+		상태 필드 : 단순히 값을 저장하기 위한 필드 (ex: m.username)
+		연관 필드 : 연관관계를 위한 필드
+			- 단일 값 연관 필드 : @ManyToOne, @OneToOne, 대상이 엔티티(ex: m.team)
+			- 컬렉션 값 연관 필드 : @OneToMany, @ManyToMany, 대상이 컬렉션(ex: m.orders)
+		
+		2.
+		상태 필드 : 경로 탐색의 끝, 탐색X
+		단일 값 연관 경로 : 묵시적 내 부조인(inner join) 발생, 탐색O
+		컬렉션 값 연관 경로 : 묵시적 내부 조인 발생, 탐색X
+		
